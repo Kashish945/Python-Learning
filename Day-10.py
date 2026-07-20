@@ -43,6 +43,7 @@ pali("kashish")
 
 
 # The Rabbits Problem :- Fibonacci pattern
+
 #pair of rabbits produces another pair every month starting from the second month. How many rabbit pairs are there after n months?
 #The number of rabbit pairs follows the Fibonacci sequence:
 #Month 1 → 1 pair
