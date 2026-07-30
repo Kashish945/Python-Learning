@@ -251,3 +251,130 @@ dad=Parent()
 dad.show()   # this will call parent method     
 son=Child()
 son.show()  # this will call child method(method overrriding)
+
+
+## Types Of Inheritance
+    #  1. Single Inheritance
+    #  2. Multiple Inheritance
+    #  3. Multilevel Inheritance
+    #  4. Hierarchical Inheritance
+    #  5. Hybrid Inheritance
+
+# 1. Single Inheritance
+# Definition : When one child class inherits from one parent class, it is called Single Inheritance.
+
+# Example 1:
+class Phone:
+     def __init__(self, price,brand,camera): 
+        self.price=price
+        self.brand=brand
+        self.camera=camera
+        
+     def buy(self):
+        print("Buying the Phone") 
+        
+class Smartphone(Phone):
+    pass
+    
+s1=Smartphone(20000,"realme",13).buy()
+
+
+# 2. Multiple Inheritance
+# Definition : When one child class inherits from more than one parent class, it is called Multiple Inheritance.
+
+# EXample 1:
+class Product:
+        def review(self):
+            print("review")
+
+class Phone:
+     def __init__(self, price,brand,camera):  
+        self.price=price
+        self.brand=brand
+        self.camera=camera
+        
+     def buy(self):
+        print("Buying the Phone") 
+        
+     def return_phone(self):
+        print("REturning a phone")
+        
+class Smartphone(Phone,Product):
+    pass 
+    
+s1=Smartphone(20000,"realme",13)
+s1.buy()
+s1.review()
+
+
+# 3. Multilevel Inheritance
+# Definition : When a child class becomes the parent of another class, it is called Multilevel Inheritance.
+
+# Example 1:
+class Product:
+        def review(self):
+            print("Product customer review")
+            
+class Phone(Product):
+     def __init__(self, price,brand,camera): 
+        print("inside phone class constructor")
+        self.price=price
+        self.brand=brand
+        self.camera=camera
+        
+     def buy(self):
+        print("Buying the Phone") 
+
+class Smartphone(Phone):
+    pass
+    
+s=Smartphone(20000,"realme",13)
+p=Phone(1000, "Apple", 1)
+
+s.buy()
+p.review()
+s.review()
+
+
+# 4. Hierarchical Inheritance
+# Definition : When multiple child classes inherit from one parent class, it is called Hierarchical Inheritance.
+
+# Example 1:
+class Animal:
+        def eat(self):
+            print("Eating")
+            
+class Dog(Animal):
+        def bark(self):
+                print("Barking")
+
+class Cat(Animal):
+        def meow(self):
+                print("meow meow meow")
+                
+d= Dog()
+c= Cat()
+d.eat()
+d.bark()
+c.eat()
+c.meow()
+
+# 5. Hybrid Inheritance
+# Definition :A combination of two or more types of inheritance is called Hybrid Inheritance.Python supports hybrid inheritance because it supports multiple inheritance.
+
+# Example 1: 
+class A:
+        def display(show):
+                print("class-A")
+                
+class B(A):
+        pass
+    
+class C(B):
+        pass
+    
+class D(C,B):
+        pass 
+    
+obj=D()
+obj.display()
