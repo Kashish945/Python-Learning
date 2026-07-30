@@ -378,3 +378,71 @@ class D(C,B):
     
 obj=D()
 obj.display()
+
+
+## MOR (Method Resolution Order) 
+
+# MRO (Method Resolution Order) is the order in which Python searches for a method or attribute when it is called on an object.
+# It determines which class's method will be executed first.
+# class which inherited first will execute first
+
+# Example 1:
+class Product:
+        def review(self):
+            print("Product customer review")
+            
+class Phone(Product):
+     def __init__(self, price,brand,camera): 
+        print("inside phone class constructor")
+        self.price=price
+        self.brand=brand
+        self.camera=camera
+        
+     def buy(self):
+        print("Buying the Phone") 
+
+class Smartphone(Phone, Product):
+    pass
+    
+s=Smartphone(20000,"realme",13)
+s.buy()
+
+# Example 2:
+class A:
+        def m1(show):
+            return 20
+                
+class B(A):
+        def m1(show):
+            return 30
+        def m2(show):
+            return 40
+    
+class C(B):
+        def m2(show):
+            return 20
+
+obj1=A()
+obj2=B()
+obj3=C()
+print(obj1.m1()+obj3.m1()+obj3.m2())
+
+# Example 3: 
+class A:
+        def m1(self):
+            return 20
+        
+class B(A):
+        def m1(self):
+            val=super().m1()+30
+            return val
+        
+class C(B):
+        def m1(self):
+            val=self.m1()+20 #infinit recursion call 
+            return val
+        
+obj=C()
+print(obj.m1())
+
+# Explanation : error --> maximum recursion depth exceeded
